@@ -1,0 +1,463 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: desarrollo
+ * Date: 15/11/2016
+ * Time: 10:34
+ */?>
+
+<!doctype html>
+<html amp lang="es">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+      <script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>
+      <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+      <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+      <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+      <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+      <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+      <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+
+
+      <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": "https://ampbyexample.com/samples_templates/news_article/",
+      "headline": "Lorem Ipsum",
+      "datePublished": "2016-04-21T11:55:02Z",
+      "dateModified": "2016-04-21T11:55:02Z",
+      "description": "A sample news article build with AMP.",
+      "author": {
+        "@type": "Person",
+        "name": "Sebastian Benz"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Google",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "http://cdn.ampproject.org/logo.jpg",
+          "width": 600,
+          "height": 60
+        }
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://ampbyexample.com/img/landscape_lake_1280x857.jpg",
+        "height": 1280,
+        "width": 857
+      }
+    }
+    </script>
+
+
+    <title>Hola, AMP</title>
+
+    <link rel="canonical" href="http://example.ampproject.org/article-metadata.html" />
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+
+      <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script type="application/ld+json">
+      {
+          "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "logo.jpg"
+      ]
+      }
+    </script>
+
+      <style amp-custom>
+          body{
+              font-family: Roboto, sans-serif;
+          }
+          .carousel .slide > amp-img > img {
+              object-fit: contain;
+          }
+          .logo {
+              background-position: left 16px center;
+              background-repeat: no-repeat;
+              background-color: #00ff66;
+
+              box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+              padding-top: 7px;
+              padding-bottom: 7px;
+          }
+
+          .button{
+
+ 
+              display: block;
+              float: left;
+              padding-left: 14px;
+              margin-top: 20px;
+          }
+          .heading {
+              padding-bottom: 8px;
+          }
+          .heading > #summary {
+              font-weight: 500;
+          }
+          .heading > small {
+              color: #656565;
+          }
+          .related {
+              background-color: #f5f5f5;
+              margin: 16px 16px;
+              display: block;
+              color: #111;
+              height: 75px;
+              padding: 0;
+          }
+          .related > span {
+              font-size: 16px;
+              line-height: 75px;
+              font-weight: 400;
+              vertical-align: top;
+              margin: 8px;
+          }
+          .related:hover {
+              background-color: #ccc;
+          }
+          amp-user-notification {
+              padding: 8px;
+              background: #bbb;
+              text-align: center;
+              color: white;
+          }
+
+          .link-logo{
+              margin-left: 36px;
+          }
+          .fa-2{
+              font-size: 30px;
+          }
+
+          #sidebar {
+              width: 320px;
+              background-color: #fff;
+          }
+
+          #sidebar .close {
+              float: right;
+              top: 17px;
+              margin-right: 16px;
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              font-size: 30px;
+          }
+
+          #sidebar .topheader {
+              margin-top: 16px;
+              margin-left: 16px;
+          }
+
+
+          section[expanded] .show-more {
+              display: none;
+          }
+          section:not([expanded]) .show-less {
+              display: none;
+          }
+          .nested-accordion h4 {
+              font-size: 14px;
+              background-color: #ddd;
+          }
+
+
+          #sidebar amp-accordion>* {
+              -webkit-tap-highlight-color: #e5e5e5;
+          }
+
+          #sidebar h4 {
+              font-weight: 700;
+              font-size: 13px;
+              padding: 0;
+              border: 0;
+              background-color: #fff;
+              width: 100%;
+              line-height: 40px;
+          }
+
+          ::selection {
+              background: #b3d4fc;
+              text-shadow: none;
+          }
+
+          #sidebar .expanded, #sidebar .item a:active{
+              background-color: #eee;
+
+          }
+
+
+          #sidebar .category {
+              padding-left: 16px;
+          }
+
+
+          #sidebar .home {
+              text-align: left;
+              font-weight: 500;
+              font-size: 16px;
+              text-transform: uppercase;
+              line-height: 36px;
+              color: rgba(0,0,0,.87);
+              padding-left: 0;
+          }
+
+          .button, body a, button {
+              cursor: pointer;
+              text-decoration: none;
+          }
+
+          #sidebar .item a {
+              color: #333;
+              display: block;
+              font-weight: 400;
+              letter-spacing: .1px;
+              padding: 10px 24px 10px 32px;
+              white-space: nowrap;
+              font-size: 13px;
+              -webkit-tap-highlight-color: #e5e5e5;
+          }
+
+          .amp-mode-touch #sidebar .item a {
+              padding-top: 12px;
+              padding-bottom: 11px;
+          }
+          h4.margin {
+              margin: 0;
+          }
+
+
+          .category a{
+              color: black;
+              font-weight: bold;
+              font-size: 13px;
+          }
+
+
+
+
+          .amp-social-share-whatsapp{
+              background: #25d366;
+              background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSIwIDAgOTAgOTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDkwIDkwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggaWQ9IldoYXRzQXBwIiBkPSJNOTAsNDMuODQxYzAsMjQuMjEzLTE5Ljc3OSw0My44NDEtNDQuMTgyLDQzLjg0MWMtNy43NDcsMC0xNS4wMjUtMS45OC0yMS4zNTctNS40NTVMMCw5MGw3Ljk3NS0yMy41MjIgICBjLTQuMDIzLTYuNjA2LTYuMzQtMTQuMzU0LTYuMzQtMjIuNjM3QzEuNjM1LDE5LjYyOCwyMS40MTYsMCw0NS44MTgsMEM3MC4yMjMsMCw5MCwxOS42MjgsOTAsNDMuODQxeiBNNDUuODE4LDYuOTgyICAgYy0yMC40ODQsMC0zNy4xNDYsMTYuNTM1LTM3LjE0NiwzNi44NTljMCw4LjA2NSwyLjYyOSwxNS41MzQsNy4wNzYsMjEuNjFMMTEuMTA3LDc5LjE0bDE0LjI3NS00LjUzNyAgIGM1Ljg2NSwzLjg1MSwxMi44OTEsNi4wOTcsMjAuNDM3LDYuMDk3YzIwLjQ4MSwwLDM3LjE0Ni0xNi41MzMsMzcuMTQ2LTM2Ljg1N1M2Ni4zMDEsNi45ODIsNDUuODE4LDYuOTgyeiBNNjguMTI5LDUzLjkzOCAgIGMtMC4yNzMtMC40NDctMC45OTQtMC43MTctMi4wNzYtMS4yNTRjLTEuMDg0LTAuNTM3LTYuNDEtMy4xMzgtNy40LTMuNDk1Yy0wLjk5My0wLjM1OC0xLjcxNy0wLjUzOC0yLjQzOCwwLjUzNyAgIGMtMC43MjEsMS4wNzYtMi43OTcsMy40OTUtMy40Myw0LjIxMmMtMC42MzIsMC43MTktMS4yNjMsMC44MDktMi4zNDcsMC4yNzFjLTEuMDgyLTAuNTM3LTQuNTcxLTEuNjczLTguNzA4LTUuMzMzICAgYy0zLjIxOS0yLjg0OC01LjM5My02LjM2NC02LjAyNS03LjQ0MWMtMC42MzEtMS4wNzUtMC4wNjYtMS42NTYsMC40NzUtMi4xOTFjMC40ODgtMC40ODIsMS4wODQtMS4yNTUsMS42MjUtMS44ODIgICBjMC41NDMtMC42MjgsMC43MjMtMS4wNzUsMS4wODItMS43OTNjMC4zNjMtMC43MTcsMC4xODItMS4zNDQtMC4wOS0xLjg4M2MtMC4yNy0wLjUzNy0yLjQzOC01LjgyNS0zLjM0LTcuOTc3ICAgYy0wLjkwMi0yLjE1LTEuODAzLTEuNzkyLTIuNDM2LTEuNzkyYy0wLjYzMSwwLTEuMzU0LTAuMDktMi4wNzYtMC4wOWMtMC43MjIsMC0xLjg5NiwwLjI2OS0yLjg4OSwxLjM0NCAgIGMtMC45OTIsMS4wNzYtMy43ODksMy42NzYtMy43ODksOC45NjNjMCw1LjI4OCwzLjg3OSwxMC4zOTcsNC40MjIsMTEuMTEzYzAuNTQxLDAuNzE2LDcuNDksMTEuOTIsMTguNSwxNi4yMjMgICBDNTguMiw2NS43NzEsNTguMiw2NC4zMzYsNjAuMTg2LDY0LjE1NmMxLjk4NC0wLjE3OSw2LjQwNi0yLjU5OSw3LjMxMi01LjEwN0M2OC4zOTgsNTYuNTM3LDY4LjM5OCw1NC4zODYsNjguMTI5LDUzLjkzOHoiIGZpbGw9IiNGRkZGRkYiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K');
+              width: 45px;
+              height: 33px;
+              background-repeat: no-repeat ;
+              background-position: center ;
+              background-size: contain ;
+              text-decoration: none;
+              cursor: pointer;
+              position: relative ;
+              display: inline-block;
+              position: relative;
+          }
+
+
+
+          article#preview {
+              padding: 1px 0 16px;
+              background: #fff;
+              box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+          }
+
+          p {
+              font-size: 14px;
+              letter-spacing: 0;
+              margin-bottom: 8px;
+          }
+
+          h1, h2, h3, h4, h5, h6, p {
+              margin: 0;
+              padding: 0;
+          }
+
+          figcaption, h1, h2, h3, h4, h5, h6, p {
+              padding: 0 16px;
+          }
+          p {
+              text-align: justify;
+          }
+
+          amp-brightcove, amp-carousel, amp-facebook, amp-iframe, amp-instagram, amp-twitter, amp-video, amp-vimeo, amp-vine, amp-youtube, daily-motion, figure {
+              margin: 24px 0;
+          }
+
+
+          .leyenda-foto{
+              background: rgba(0, 0, 0, 0.88);
+              color: white;
+              text-align: center;
+              font-size: 12px;
+          }
+
+
+          h1 {
+              font-size: 42px;
+              letter-spacing: -.02em;
+              margin-top: 24px;
+          }
+
+
+          h1, h2, h3 {
+              margin-bottom: 8px;
+              font-weight: 400;
+          }
+
+            .deporte-categoria{
+                color:#6c6c6c;
+            }
+
+          h6, p {
+              font-weight: 400;
+              line-height: 24px;
+          }
+
+      </style>
+
+
+      <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+
+
+  </head>
+  <body>
+
+
+
+  <amp-sidebar id='sidebar'
+               layout="nodisplay"
+               side="left">
+
+
+
+      <amp-img src="ic_chevron_left_black_24dp_2x.png" class="close" on="tap:sidebar.close" role="button" tabindex="0" alt="cerrar" height="32" width="32"></amp-img>
+
+
+
+      <div class="topheader">
+          <a href="/" class="home">Inicio</a>
+      </div>
+      <hr>
+
+
+      <amp-accordion>
+          <section expanded>
+              <h4>
+                  <div class="show-more category">Nivel</div>
+                  <div class="show-less category expanded">Nivel</div>
+              </h4>
+
+
+              <div >
+                <div class="item"><a href="#">sodales eget</a></div>
+                  <div class="item"><a href="#">Morbi mattis</a></div>
+ 
+
+              </div>
+
+          </section>
+
+
+
+
+      </amp-accordion>
+
+      <section>
+          <h4 class="margin">
+              <div class="show-more category"><a href="#">Sin Niveles</a></div>
+          </h4>
+
+      </section>
+
+
+  </amp-sidebar>
+  <article id="preview">
+
+  <!-- LOGO -->
+  <div class="logo">
+      <a on='tap:sidebar.toggle' class="button"><i class="fa fa-bars fa-2" aria-hidden="true"></i></a>
+      <a href="/" class="link-logo">  <amp-img src="tulogoaqui.png" alt="Logo" height="71" width="218"></amp-img></a>
+  </div>
+
+   <!--imagen del articulo-->
+
+      <figure>
+
+          <amp-img src="city-q-c-640-480-7.jpg" alt="" height="768" width="1280" layout="responsive"></amp-img>
+<div class="leyenda-foto">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+      </figure>
+
+
+<div class="heading">
+<h3 class="deporte-categoria">Cras vulputate dapibus libero</h3>
+
+<h1>Donec tincidunt interdum nisl eu placerat</h1>
+   <p>
+              <small>Jueves 17, 8:59 am</small>
+     </p>
+
+</div>
+
+
+      <!--SOCIAL SHARING -->
+
+      <p class="heading">
+          <amp-social-share type="twitter"
+                            width="45"
+                            height="33"></amp-social-share>
+          <amp-social-share type="facebook"
+                            width="45"
+                            height="33"
+                            data-attribution=254325784911610></amp-social-share>
+          <amp-social-share type="gplus"
+                            width="45"
+                            height="33"></amp-social-share>
+          <amp-social-share type="email"
+                            width="45"
+                            height="33"></amp-social-share>
+          <amp-social-share type="whatsapp"
+                            width="45"
+                            height="33"
+                            layout="container"
+                            data-share-endpoint="whatsapp://send"
+                            data-param-text="Check out this article: TITLE - CANONICAL_URL">
+          </amp-social-share>
+
+      </p>
+
+
+<div class="contenido">
+    <p>Lorem ipsum dolor sit amet, voluptua oporteat cum cu, eu vix interesset scribentur. Et iudico efficiendi duo, vim an odio iusto reformidans. At maluisset scripserit duo, cum in sumo delenit. Quot erant maiestatis usu ut. Ne mea maiorum vivendum argumentum,
+        tale utinam postea mei in, eam in odio dicta patrioque.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, voluptua oporteat cum cu, eu vix interesset scribentur. Et iudico efficiendi duo, vim an odio iusto reformidans. At maluisset scripserit duo, cum in sumo delenit. Quot erant maiestatis usu ut. Ne mea maiorum vivendum argumentum, tale utinam postea mei in, eam in odio dicta patrioque.
+
+        Cum ad graeci legimus, ut duo omnesque petentium, mei saepe explicari principes eu. Ex mei ocurreret expetendis, ex errem blandit has. Phaedrum mediocrem appellantur his ut. Erat viris mediocrem id ius, ad dicta appareat assentior sit. Nec et nullam singulis moderatius, est reque vidisse copiosae eu.
+
+        Mutat dolores ea duo. Usu cu dico everti tincidunt, pri vero nullam vidisse no. Eam novum aeque populo cu. Verear contentiones ne quo, no sed consulatu definitionem.
+    </p>
+
+</div>
+
+
+
+
+
+
+ 
+
+
+  </article>
+
+  </body>
+</html>
